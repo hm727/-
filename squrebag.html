@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script>
+        function order(){
+            alert('주문이 완료되었습니다!');
+        }
+    </script>
+    <style>
+        .container{
+            width: 50%;
+            margin: 0 auto;
+        }
+        .container img {
+            width: 100%;
+        }
+        .btn-area {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://image.wconcept.co.kr/images/builder/1/4/15/37/2323_20200515101532.jpg" alt="">
+        <h2>Square Bag</h2>
+        <strong>가격: 200,000원/개</strong>
+        <p>가장 기본적인 백의 모양은 뭐니 뭐니해도 스퀘어백이다. 캔버스 소재로 가벼운 계절감을 나타내면서 스퀘어 쉐입에서 나오는 단정함 덕분에 포멀한 오피스룩으로도 손색이 없다.</p>
+        
+        <h2>주문하기</h2>
+        <form>
+            <div class="form-group row">
+                <label for="" class="col-sm-4 col-form-label">주문자 성함</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-4 col-form-label">수량</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-4 col-form-label">주소</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-4 col-form-label">전화번호</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="btn-area">
+                <button onclick="order()" type="submit" class="btn btn-primary">주문하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
