@@ -9,12 +9,40 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <script>
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    let exchange = response[1]["rate"];
+                    $('#exchange').append(exchange);
+                }
+            });
+        });
         function order(){
-            alert('주문이 완료되었습니다!');
+            let name = $("#name").val();
+            let count = $("#exampleFormControlSelect1").val();
+            let address = $("#address").val();
+            let number = $("#number").val();
+
+            if (name == '') {
+                alert("이름을 입력하세요");
+            } else if (count == '') {
+                alert("수량을 입력하세요");
+            } else if (address =='') {
+                alert("주소를 입력하세요");
+            } else if (number == ''){
+                alert("전화번호를 입력하세요");
+            } else {
+                alert('주문이 완료되었습니다.')
+            }
         }
     </script>
+
     <style>
         .container{
             width: 50%;
@@ -26,6 +54,10 @@
         .btn-area {
             text-align: center;
         }
+        .info-temp{
+            color : blue;
+            font-weight : bold;
+        }
     </style>
 </head>
 <body>
@@ -35,18 +67,23 @@
         <strong>가격: 200,000원/개</strong>
         <p>가장 기본적인 백의 모양은 뭐니 뭐니해도 스퀘어백이다. 캔버스 소재로 가벼운 계절감을 나타내면서 스퀘어 쉐입에서 나오는 단정함 덕분에 포멀한 오피스룩으로도 손색이 없다.</p>
         
-        <h2>주문하기</h2>
+        <div class="info-temp">
+            달러-원 환율:
+            <span id="exchange"></span>
+        </div>
+
         <form>
             <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label">주문자 성함</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" value="">
+                    <input id="name" type="text" class="form-control" value="">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label">수량</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="">수량을 선택하세요.</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -58,13 +95,13 @@
             <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label">주소</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" value="">
+                    <input id="address" type="text" class="form-control" value="">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label">전화번호</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control">
+                    <input id="number" type="text" class="form-control">
                 </div>
             </div>
             <div class="btn-area">
